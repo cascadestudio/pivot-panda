@@ -12,13 +12,9 @@ const query = graphql`
         titleTemplate
         description
         siteUrl
+        imageUrl
         lang
       }
-    }
-    logoImage: file(
-      relativePath: { eq: "logos/logo-pivot-panda-paysage.svg" }
-    ) {
-      publicURL
     }
   }
 `;
@@ -31,7 +27,7 @@ const SEO = ({ pageTitle, articleDescription, imageUrl }) => {
     site.siteMetadata;
 
   const metaDescription = articleDescription || description;
-  const metaImage = imageUrl || `${siteUrl}${logoImage.publicURL}`;
+  const metaImage = imageUrl;
   return (
     <Helmet
       defaultTitle={title}
