@@ -303,17 +303,13 @@ const Footer = () => {
           <StyledCredits>
             <Text>© Pivot Panda {currentYear}</Text>
             <StyledSignature>
-              Site créé par
-              <a href="https://alapasset.dev" target="_blank" rel="noreferrer">
-                Adrien
-              </a>
-              &
+              Site créé par le
               <a
-                href="https://clementlapasset.dev"
+                href="https://cascadestudio.fr"
                 target="_blank"
                 rel="noreferrer"
               >
-                Clément Lapasset
+                Studio Cascade
               </a>
             </StyledSignature>
           </StyledCredits>
@@ -323,16 +319,8 @@ const Footer = () => {
         <Text>© Pivot Panda {currentYear}</Text>
         <StyledSignature>
           Site :
-          <a href="https://alapasset.dev" target="_blank" rel="noreferrer">
-            Adrien
-          </a>
-          &
-          <a
-            href="https://clementlapasset.dev"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Clément Lapasset
+          <a href="https://cascadestudio.fr" target="_blank" rel="noreferrer">
+            Studio Cascade
           </a>
         </StyledSignature>
       </StyledMobileCredits>
