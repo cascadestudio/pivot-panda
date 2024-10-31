@@ -15,19 +15,23 @@ const query = graphql`
         lang
       }
     }
+    logoImage: file(
+      relativePath: { eq: "logos/logo-pivot-panda-paysage.svg" }
+    ) {
+      publicURL
+    }
   }
 `;
 
 const SEO = ({ pageTitle, articleDescription, imageUrl }) => {
-  const { site } = useStaticQuery(query);
+  const { site, logoImage } = useStaticQuery(query);
   const { pathname } = useLocation();
 
   const { title, titleTemplate, description, lang, siteUrl } =
     site.siteMetadata;
 
   const metaDescription = articleDescription || description;
-  const metaImage = imageUrl;
-
+  const metaImage = imageUrl || `${siteUrl}${logoImage.publicURL}`;
   return (
     <Helmet
       defaultTitle={title}
