@@ -50,15 +50,11 @@ const StyledSlider = styled(Slider)`
 `;
 
 const ProjectCarousel = ({ images }) => {
-  // const initImage = images[0];
-  // const [currentImage, setCurrentImage] = useState(initImage);
   const [imageIndex, setImageIndex] = useState(1);
   const sliderRef = useRef();
 
   const handleImageChange = (oldIndex, newIndex) => {
     setImageIndex(newIndex + 1);
-    // const image = images[newIndex];
-    // setCurrentImage(image);
   };
   const settings = {
     infinite: true,
@@ -66,7 +62,6 @@ const ProjectCarousel = ({ images }) => {
     slidesToScroll: 1,
     initialSlide: 0,
     variableWidth: true,
-    focusOnSelect: true,
     beforeChange: (oldIndex, newIndex) => {
       handleImageChange(oldIndex, newIndex);
     },
