@@ -26,6 +26,7 @@ const SEO = ({ pageTitle, articleDescription, imageUrl }) => {
   const { title, titleTemplate, description, lang, siteUrl } =
     site.siteMetadata;
 
+  const metaTitle = pageTitle || title;
   const metaDescription = articleDescription || description;
   const metaImage = imageUrl || site.siteMetadata.imageUrl;
   return (
@@ -45,7 +46,7 @@ const SEO = ({ pageTitle, articleDescription, imageUrl }) => {
         },
         {
           property: `og:title`,
-          content: pageTitle,
+          content: metaTitle,
         },
         {
           property: `og:description`,
