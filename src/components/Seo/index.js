@@ -20,14 +20,14 @@ const query = graphql`
 `;
 
 const SEO = ({ pageTitle, articleDescription, imageUrl }) => {
-  const { site, logoImage } = useStaticQuery(query);
+  const { site } = useStaticQuery(query);
   const { pathname } = useLocation();
 
   const { title, titleTemplate, description, lang, siteUrl } =
     site.siteMetadata;
 
   const metaDescription = articleDescription || description;
-  const metaImage = imageUrl;
+  const metaImage = imageUrl || site.siteMetadata.imageUrl;
   return (
     <Helmet
       defaultTitle={title}
