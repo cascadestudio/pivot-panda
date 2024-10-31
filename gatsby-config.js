@@ -11,7 +11,7 @@ module.exports = {
     title: `Pivot Panda`,
     titleTemplate: "Pivot Panda - %s",
     siteUrl: `https://pivotpanda.com/`,
-    imageUrl: `https://pivotpanda.com/imgs/pivot-panda-logo.png`,
+    imageUrl: `https://pivotpanda.com/pivot-panda-logo.png`,
     description:
       "Basé à Marseille et Paris, nous réalisons des projets d’espaces de travail, de lieux de vie tels que des hôtels, des commerces, du co-living, co-working ou des logements meublés, centrés sur les usages et adaptés aux besoins du client.",
     author: "Adrien Lapasset, Clément Lapasset",
