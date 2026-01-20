@@ -29,6 +29,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-sanity-image",
+      options: {
+        projectId: "pp1ujuyb",
+        dataset: "production",
+      },
+    },
+    {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/assets/imgs/favicon.png",
