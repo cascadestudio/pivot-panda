@@ -72,8 +72,8 @@ const StyledBlockText = styled(StyledText)`
 `;
 
 const BeforeAfterSlider = ({ imageBefore, imageAfter, text }) => {
-  const beforeSrc = imageBefore.asset.gatsbyImageData.images.fallback.src;
-  const afterSrc = imageAfter.asset.gatsbyImageData.images.fallback.src;
+  const beforeSrc = `${imageBefore.asset.url}?w=1200&auto=format`;
+  const afterSrc = `${imageAfter.asset.url}?w=1200&auto=format`;
   return (
     <StyledBlockContainer>
       <StyledContentBlock>

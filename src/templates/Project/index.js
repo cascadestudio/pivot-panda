@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "components/Layout";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import SanityImage from "gatsby-plugin-sanity-image";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 import PageContainer from "components/global/PageContainer";
@@ -26,11 +26,12 @@ const StyledHeader = styled(Grid)`
   }
 `;
 
-const StyledHeroImage = styled(GatsbyImage)`
+const StyledHeroImage = styled(SanityImage)`
   grid-row: 1 / 2;
   grid-column: span 4;
   height: 100%;
   width: 100%;
+  object-fit: cover;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 7;
   }
@@ -240,9 +241,7 @@ export const query = graphql`
       architect
       description
       image {
-        asset {
-          gatsbyImageData
-        }
+        ...ImageWithPreview
       }
       slug {
         current
@@ -254,32 +253,24 @@ export const query = graphql`
       }
       ImageTextSections {
         image {
-          asset {
-            gatsbyImageData
-          }
+          ...ImageWithPreview
         }
         text
         orientation
       }
       beforeAfterImages {
         imageAfter {
-          asset {
-            gatsbyImageData
-          }
+          ...ImageWithPreview
         }
         imageBefore {
-          asset {
-            gatsbyImageData
-          }
+          ...ImageWithPreview
         }
         text
       }
       isFeaturedProject
       projectCarousel {
         image {
-          asset {
-            gatsbyImageData(height: 600)
-          }
+          ...ImageWithPreview
         }
       }
     }
@@ -304,7 +295,6 @@ const Project = ({ data }) => {
     projectCarousel,
     isFeaturedProject,
   } = data.sanityProject;
-  const heroImage = getImage(image.asset);
   const projectYear = new Date(year).getFullYear();
   const heroVideo = video && video.asset.url;
   const [isMuted, setIsMuted] = useState(true);
@@ -314,7 +304,7 @@ const Project = ({ data }) => {
       <Seo
         pageTitle={name}
         articleDescription={description}
-        imageUrl={image.asset.gatsbyImageData.images.fallback.src}
+        imageUrl={image.asset.url}
       />
       <Layout>
         <div className="pageAnimation">
@@ -335,7 +325,7 @@ const Project = ({ data }) => {
                 </StyledSoundButton>
               </>
             ) : (
-              <StyledHeroImage image={heroImage} alt={name} />
+              <StyledHeroImage {...image} alt={name} width={1920} />
             )}
             <StyledVerticalLine />
             <StyledCategory type="label">{category}</StyledCategory>
