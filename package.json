@@ -38,7 +38,6 @@
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "gatsby-plugin-root-import": "^2.0.9",
-    "netlify-plugin-gatsby-cache": "^0.3.2"
+    "gatsby-plugin-root-import": "^2.0.9"
   }
 }
