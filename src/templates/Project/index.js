@@ -242,6 +242,9 @@ export const query = graphql`
       description
       image {
         ...ImageWithPreview
+        asset {
+          url
+        }
       }
       slug {
         current
@@ -261,9 +264,15 @@ export const query = graphql`
       beforeAfterImages {
         imageAfter {
           ...ImageWithPreview
+          asset {
+            url
+          }
         }
         imageBefore {
           ...ImageWithPreview
+          asset {
+            url
+          }
         }
         text
       }
