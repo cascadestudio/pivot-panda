@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import SanityImage from "gatsby-plugin-sanity-image";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 import PageContainer from "components/global/PageContainer";
@@ -25,10 +25,12 @@ const StyledImageTextSection = styled(Grid)`
   }
 `;
 
-const StyledSectionImage = styled(GatsbyImage)`
+const StyledSectionImage = styled(SanityImage)`
   max-height: calc(100vh - 60px);
   grid-column: span 4;
   margin-bottom: 30px;
+  width: 100%;
+  object-fit: cover;
   @media ${(props) => props.theme.minWidth.md} {
     max-height: calc(100vh - 80px);
     grid-column: ${({ islandscape }) =>
@@ -46,14 +48,14 @@ const StyledSectionText = styled(StyledText)`
 
 const ImageTextSection = ({ image, text, orientation }) => {
   if (image) {
-    const sectionImage = getImage(image.asset);
     const isLandscape = orientation === "landscape";
     if (text) {
       return (
         <StyledSectionContainer key={text}>
           <StyledImageTextSection>
             <StyledSectionImage
-              image={sectionImage}
+              {...image}
+              width={1200}
               islandscape={isLandscape.toString()}
               alt={`Section image ${text}`}
             />
@@ -66,7 +68,8 @@ const ImageTextSection = ({ image, text, orientation }) => {
         <StyledSectionContainer key={text}>
           <StyledImageTextSection>
             <StyledSectionImage
-              image={sectionImage}
+              {...image}
+              width={1200}
               alt={`Section image ${text}`}
             />
           </StyledImageTextSection>

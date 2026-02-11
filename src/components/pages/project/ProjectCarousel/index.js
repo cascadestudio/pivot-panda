@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import SanityImage from "gatsby-plugin-sanity-image";
 import Button from "components/global/Button";
 import Text from "components/global/Text";
 import Slider from "react-slick";
@@ -79,14 +79,16 @@ const ProjectCarousel = ({ images }) => {
   return (
     <StyledBlockContainer>
       <StyledSlider {...settings} ref={sliderRef}>
-        {images.map(({ image }) => {
-          const getGatsbyImage = getImage(image.asset);
+        {images.map(({ image }, index) => {
           return (
-            <div key={image.asset} className="carousel-item">
-              <GatsbyImage
+            <div key={index} className="carousel-item">
+              <SanityImage
+                {...image}
+                width={800}
+                height={600}
                 className="carousel-image"
-                image={getGatsbyImage}
                 alt="Image à faire défiler"
+                style={{ objectFit: "cover", width: "100%", height: "100%" }}
               />
             </div>
           );
